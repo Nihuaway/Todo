@@ -1,6 +1,7 @@
 // import { Inter } from 'next/font/google'
 // const inter = Inter({ subsets: ['latin'] })
 'use client'
+import { store } from '@/store/store';
 import '../../styles/main.css'
 
 import { CacheProvider } from '@chakra-ui/next-js'
@@ -20,25 +21,29 @@ const queryClient = new QueryClient({
 });
 
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { Provider } from 'react-redux';
 
-export default function RootLayout({ children }) {
+function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
         <CacheProvider>
           <ChakraProvider>
-            <QueryClientProvider client={queryClient}>
-              <ReactQueryDevtools initialIsOpen={false} />
-              <Stack width={'100%'} align='center' padding={'48px'}>
-                <Stack maxWidth={'400px'} width='100%'>
-                  {children}
-                </Stack>
+            <Provider store={store}>
+              <QueryClientProvider client={queryClient}>
+                <ReactQueryDevtools initialIsOpen={false} />
+                <Stack width={'100%'} align='center' padding={'48px'}>
+                  <Stack maxWidth={'1200px'} width='100%'>
+                    {children}
+                  </Stack>
 
-              </Stack>
-            </QueryClientProvider>
+                </Stack>
+              </QueryClientProvider>
+            </Provider>
           </ChakraProvider>
         </CacheProvider>
       </body>
     </html>
   )
 }
+export default RootLayout
