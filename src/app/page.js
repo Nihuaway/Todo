@@ -51,10 +51,10 @@ export default function Home() {
           <Stack>
             {
               data?.filter(it => !it.isCompleted).length ? (
-                data.map(todo => {
-                  if (todo.isCompleted) return
+                data.map(task => {
+                  if (task.isCompleted) return
                   return (
-                    <TaskItem key={todo.id} id={todo.id} title={todo.title} date={'2932832'} isCompleted={todo.isCompleted} description={todo.description} />
+                    <TaskItem key={task.id} id={task.id} title={task.title} date={task.date} isCompleted={task.isCompleted} description={task.description} />
                   )
                 })) : (
                 <Stack justify={'center'} align={'center'} height={'100px'} direction={'column'} spacing={0} padding={'6px'}>
@@ -80,10 +80,10 @@ export default function Home() {
           <Stack>
             {
               data?.filter(it => it.isCompleted).length ? (
-                data.map(todo => {
-                  if (!todo.isCompleted) return
+                data.map(task => {
+                  if (!task.isCompleted) return
                   return (
-                    <TaskItem key={todo.id} id={todo.id} title={todo.title} date={'2932832'} isCompleted={todo.isCompleted} description={todo.description} />
+                    <TaskItem key={task.id} id={task.id} title={task.title} date={task.date} isCompleted={task.isCompleted} description={task.description} />
                   )
                 })) : (
                 <Stack justify={'center'} align={'center'} height={'100px'} direction={'column'} spacing={0} padding={'6px'}>

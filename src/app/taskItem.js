@@ -35,7 +35,7 @@ const TaskItem = ({ id, title, description, date, isCompleted }) => {
 				<Stack width={'min-content'}>
 					<Stack width={'min-content'} onClick={onSelect} cursor={'pointer'}>
 						<Heading size='md'>{title}</Heading>
-						<Text width={'max-content'} userSelect={'none'} fontSize={'sm'} opacity={'0.5'}>{new Date().toDateString()}</Text>
+						<Text width={'max-content'} userSelect={'none'} fontSize={'sm'} opacity={'0.5'}>{new Date(parseInt(date)).toDateString()}</Text>
 					</Stack>
 					<Text opacity={'0.5'} noOfLines={2} width={'max-content'} maxWidth={'300px'}>{description}</Text>
 				</Stack>

@@ -1,6 +1,7 @@
 import { useCompleteTask } from "@/hooks/useCompleteTask"
 import { useRemoveTask } from "@/hooks/useRemoveTask"
 import { useRevertTask } from "@/hooks/useRevertTask"
+import { dateToNearFormat } from "@/parsers/dateParser"
 import { setTask } from "@/store/taskSlice"
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -68,7 +69,7 @@ const TaskModal = () => {
 						<Heading size='lg'>{task.title}</Heading>
 						<Divider />
 						<Text color={'gray.400'}>
-							{new Date(new Date().valueOf() - parseInt(task.date)).getSeconds()} секунд назад
+							{dateToNearFormat(new Date().valueOf() - parseInt(task.date))}
 						</Text>
 						<Text whiteSpace={'pre-wrap'}>
 							{task.description}
