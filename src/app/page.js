@@ -19,7 +19,7 @@ export default function Home() {
 
   if (isLoading) return <p>Загрузка...</p>;
 
-  if (error) return <p>Ошибка: {query.error.message}</p>;
+  if (error) return <p>Ошибка: {error.message}</p>;
 
   const addTaskHandler = () => {
     if (!title) return

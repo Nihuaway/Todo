@@ -1,7 +1,8 @@
+import 'dotenv/config'
 import axios from "axios"
 
 class TaskService {
-	URL = 'https://6520fe01a4199548356cb166.mockapi.io/posts'
+	URL = process.env.NEXT_PUBLIC_NOT_SECRET_MOCKAPI_URL
 
 	getById = async (id) => {
 		return await axios.get(`${this.URL}/${id}`)
