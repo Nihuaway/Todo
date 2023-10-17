@@ -1,6 +1,6 @@
 import axios from "axios"
 
-class PostService {
+class TaskService {
 	URL = 'https://6520fe01a4199548356cb166.mockapi.io/posts'
 
 	getById = async (id) => {
@@ -18,6 +18,18 @@ class PostService {
 			}
 		})
 	}
+
+	complete = async (id) => {
+		return await axios.put(`${this.URL}/${id}`, { isCompleted: true })
+	}
+
+	revert = async (id) => {
+		return await axios.put(`${this.URL}/${id}`, { isCompleted: false })
+	}
+
+	remove = async (id) => {
+		return await axios.delete(`${this.URL}/${id}`)
+	}
 }
 
-export default new PostService()
+export default new TaskService()
